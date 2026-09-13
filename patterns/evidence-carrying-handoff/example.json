@@ -1,0 +1,27 @@
+{
+  "version": "0.1",
+  "trigger": "BLOCKED_BOUNDARY",
+  "purpose": "Verify that a static demo can be opened independently on a mobile browser.",
+  "proven": [
+    {
+      "claim": "The demo renders correctly in the local test environment.",
+      "evidence": ["synthetic://test/mobile-render"]
+    }
+  ],
+  "assumed": ["The hosting path is reachable from the target network."],
+  "failed": [
+    {
+      "attempt": "Open the temporary artifact URL from an external browser.",
+      "result": "The URL was blocked before the application loaded.",
+      "evidence": ["synthetic://browser/blocked-navigation"]
+    }
+  ],
+  "current_blocker": "No independently reachable public URL has been verified.",
+  "decisive_uncertainty": "Whether the deployment path, rather than the application itself, is the cause of external access failure.",
+  "artifacts": [{"name":"Static demo bundle","ref":"synthetic://artifact/static-demo"}],
+  "next_test": {
+    "action": "Serve the unchanged static bundle from one public static host and open it from a separate network.",
+    "pass_condition": "The target page loads and the interaction completes without privileged access.",
+    "fail_condition": "The page remains unreachable or the interaction fails before completion."
+  }
+}
