@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mad-lab:evidence-carrying-handoff:0.1",
+  "title": "Evidence-Carrying Handoff v0.1",
+  "description": "Experimental handoff record for preserving evidence, uncertainty, failures, and the next test across an execution boundary. Does not transfer authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version","trigger","purpose","proven","assumed","failed","current_blocker","decisive_uncertainty","artifacts","next_test"],
+  "properties": {
+    "version": { "const": "0.1" },
+    "trigger": { "type": "string", "enum": ["REPEATED_FAILURE","ACTOR_SWITCH","BLOCKED_BOUNDARY","EXECUTION_INTERRUPTION"] },
+    "purpose": { "type": "string", "minLength": 1 },
+    "proven": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim","evidence"],
+        "properties": {
+          "claim": { "type": "string", "minLength": 1 },
+          "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "assumed": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "failed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["attempt","result"],
+        "properties": {
+          "attempt": { "type": "string", "minLength": 1 },
+          "result": { "type": "string", "minLength": 1 },
+          "evidence": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "current_blocker": { "type": ["string","null"] },
+    "decisive_uncertainty": { "type": "string", "minLength": 1 },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name","ref"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "ref": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "next_test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action","pass_condition","fail_condition"],
+      "properties": {
+        "action": { "type": "string", "minLength": 1 },
+        "pass_condition": { "type": "string", "minLength": 1 },
+        "fail_condition": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
