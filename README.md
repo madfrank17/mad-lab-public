@@ -14,7 +14,7 @@ This repository is a deliberately narrow public surface. It exposes artifacts th
 
 ### TRY — Experiments
 
-- Dynamic OS / Quiet Threshold — source artifact verified internally; public packaging and hosting validation in progress.
+- [Dynamic OS / Quiet Threshold](experiments/dynamic-os/quiet-threshold/) — provenance recovery in progress; the interaction will not be reconstructed from memory or screenshots.
 
 ## Evidence boundary
 
