@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-09-15",
+  "publication_boundary": "Approved public projection only. Non-canonical. No authority is created by publication.",
+  "projects": [
+    {
+      "id": "mad-system",
+      "project": "MAD System",
+      "public_state": "ACTIVE",
+      "public_stage": "Real-work Test",
+      "public_next_gate": "Complete a real-work golden-path runtime/browser validation in a suitable execution environment and preserve evidence-carrying handoff.",
+      "updated_at": "2026-09-14",
+      "source": "https://github.com/madfrank17/mad-lab-public",
+      "evidence_status": "VALIDATED WORKING DIRECTION / NOT CANONICAL"
+    }
+  ]
+}
