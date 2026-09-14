@@ -1,0 +1,23 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-09-15",
+  "publication_boundary": "Approved public projection only. Change records are descriptive evidence, not canonical truth and not authority.",
+  "changes": [
+    {
+      "id": "mad-system-crewai-drop-2026-09-14",
+      "project_id": "mad-system",
+      "project": "MAD System",
+      "changed_at": "2026-09-14",
+      "change": "CrewAI Flow was dropped as a dependency candidate for the current MAD recovery/runtime use case after equivalent micro-tests showed higher wrapper and dependency cost without material semantic reuse.",
+      "why_it_matters": "MAD still has to own recovery admission, schema compatibility, effect identity, authority revalidation and Human Gates, so the dependency does not currently earn its complexity.",
+      "evidence_status": "SCOPED DROP / REAL-WORK MICROTEST / REOPEN ON WORKLOAD EVIDENCE",
+      "source": "https://github.com/madfrank17/MAD_System/blob/main/Experiments/OSS_Reuse_Research_2026-09-14.md",
+      "source_visibility": "private",
+      "provenance": {
+        "evidence_origin": "reproducible comparative micro-test",
+        "judgment_origin": "human-agent review",
+        "publication_origin": "MAD Lab public projection"
+      }
+    }
+  ]
+}
